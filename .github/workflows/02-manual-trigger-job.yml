@@ -6,7 +6,7 @@ on:
       regularization_rate:
         description: 'Regularization rate'
         required: true
-        default: 0.03
+        default: 0.05
 
 jobs:
   train:
