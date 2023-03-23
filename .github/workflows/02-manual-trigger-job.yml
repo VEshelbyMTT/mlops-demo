@@ -6,7 +6,7 @@ on:
       regularization_rate:
         description: 'Regularization rate'
         required: true
-        default: 0.01 
+        default: 0.03
 
 jobs:
   train:
@@ -24,7 +24,7 @@ jobs:
       run: |
         az configure --defaults group="dp100-main-demo"
         az configure --defaults workspace="training-ml104"
-        
+
     - name: Trigger Azure Machine Learning job
       run: |
         az ml job create --file src/job.yml --reg_rate "${{ github.event.inputs.regularization_rate }}"
