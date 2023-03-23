@@ -24,7 +24,7 @@ def main(args):
          'TricepsThickness','SerumInsulin','BMI',
          'DiabetesPedigree','Age']
          ].values
-    Y =df[
+    y =df[
         ['Diabetic']
         ].values
 
