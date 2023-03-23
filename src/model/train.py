@@ -17,13 +17,15 @@ def main(args):
     # read data
     df = get_csvs_df(args.training_data)
 
-    #X = df[args.features].values
-    #y = df[args.target].values
+    # X = df[args.features].values
+    # y = df[args.target].values
+
     X =df[
-        ['Pregnancies','PlasmaGlucose','DiastolicBloodPressure',
-         'TricepsThickness','SerumInsulin','BMI',
+        ['Pregnancies','PlasmaGlucose','DiastolicBloodPressure', 
+         'TricepsThickness','SerumInsulin','BMI', 
          'DiabetesPedigree','Age']
          ].values
+    
     y =df[
         ['Diabetic']
         ].values
@@ -58,6 +60,7 @@ def split_data(df, X, y, split_value=0.3):
     print("Splitting data...")
     return  train_test_split(X, y, test_size=split_value, random_state=42)
 
+
 def train_model(reg_rate, X_train, X_test, y_train, y_test):
     # train model
     (
@@ -74,14 +77,14 @@ def parse_args():
 
     # add arguments
     parser.add_argument("--training_data", 
-                        dest='training_data',
+                        dest='training_data', 
                         type=str)
     parser.add_argument("--reg_rate", 
-                        dest='reg_rate',
+                        dest='reg_rate', 
                         type=float, 
                         default=0.01)
-    parser.add_argument("--features",
-                        dest='feature',
+    parser.add_argument("--features", 
+                        dest='feature', 
                         type=list)
     parser.add_argument("--target", 
                         dest='target',
@@ -93,6 +96,7 @@ def parse_args():
 
     # return args
     return args
+
 
 # run script
 if __name__ == "__main__":
@@ -109,3 +113,4 @@ if __name__ == "__main__":
     # add space in logs
     print("*" * 60)
     print("\n\n")
+
