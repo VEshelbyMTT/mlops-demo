@@ -3,7 +3,7 @@ code: ./model
 display_name: Train a decision tree classifier model
 type: command
 command: >- 
-  python train-model.py 
+  python train.py 
   --training_data ${{inputs.training_data}}
   --reg_rate ${{inputs.reg_rate}}
  # --features ${{inputs.features}}
