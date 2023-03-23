@@ -1,5 +1,5 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-code: model
+code: ./model
 display_name: Train a decision tree classifier model
 type: command
 command: >- 
