@@ -1,12 +1,13 @@
 name: Manually trigger an Azure Machine Learning job with inputs
 
-on:
-  workflow_dispatch:
-    inputs:
-      reg_rate:
-        description: 'Regularization rate'
-        required: true
-        default: "0.01"
+on: 
+  push:
+  #workflow_dispatch:
+  #  inputs:
+  #    reg_rate:
+  #      description: 'Regularization rate'
+  #      required: true
+  #      default: "0.01"
 
 
 jobs:
