@@ -19,8 +19,14 @@ def main(args):
 
     #X = df[args.features].values
     #y = df[args.target].values
-    X =df[['Pregnancies','PlasmaGlucose','DiastolicBloodPressure','TricepsThickness','SerumInsulin','BMI','DiabetesPedigree','Age']].values
-    Y =df[['Diabetic']].values
+    X =df[
+        ['Pregnancies','PlasmaGlucose','DiastolicBloodPressure',
+         'TricepsThickness','SerumInsulin','BMI',
+         'DiabetesPedigree','Age']
+         ].values
+    Y =df[
+        ['Diabetic']
+        ].values
 
     # split data
     X_train, X_test, y_train, y_test = split_data(df, X, y)
@@ -31,11 +37,19 @@ def main(args):
 
 def get_csvs_df(path):
     if not os.path.exists(path):
-        raise RuntimeError(f"Cannot use non-existent path provided: {path}")
-    csv_files = glob.glob(f"{path}/*.csv")
+        raise RuntimeError(
+            f"Cannot use non-existent path provided: {path}"
+            )
+    csv_files = glob.glob(
+        f"{path}/*.csv"
+        )
     if not csv_files:
-        raise RuntimeError(f"No CSV files found in provided data path: {path}")
-    return pd.concat((pd.read_csv(f) for f in csv_files), sort=False)
+        raise RuntimeError(
+            f"No CSV files found in provided data path: {path}"
+            )
+    return pd.concat(
+        (pd.read_csv(f) for f in csv_files), sort=False
+        )
 
 
 # TO DO: add function to split data - complete
@@ -46,7 +60,12 @@ def split_data(df, X, y, split_value=0.3):
 
 def train_model(reg_rate, X_train, X_test, y_train, y_test):
     # train model
-    LogisticRegression(C=1/reg_rate, solver="liblinear").fit(X_train, y_train)
+    (
+    LogisticRegression(
+            C=1/reg_rate, 
+            solver="liblinear")
+    .fit(X_train, y_train)
+    )
 
 
 def parse_args():
@@ -54,14 +73,20 @@ def parse_args():
     parser = argparse.ArgumentParser()
 
     # add arguments
-    parser.add_argument("--training_data", dest='training_data',
+    parser.add_argument("--training_data", 
+                        dest='training_data',
                         type=str)
-    parser.add_argument("--reg_rate", dest='reg_rate',
-                        type=float, default=0.01)
-    parser.add_argument("--features", dest='feature',
+    parser.add_argument("--reg_rate", 
+                        dest='reg_rate',
+                        type=float, 
+                        default=0.01)
+    parser.add_argument("--features",
+                        dest='feature',
                         type=list)
-    parser.add_argument("--target", dest='target',
-                        type=list, default=["y"])
+    parser.add_argument("--target", 
+                        dest='target',
+                        type=list, 
+                        default=["y"])
 
     # parse args
     args = parser.parse_args()
