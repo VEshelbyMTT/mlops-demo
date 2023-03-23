@@ -2,3 +2,4 @@ name: Automatically trigger an Azure Machine Learning job with a pull request
 
 run: |
         echo "Will add code checks here in next challenge"
+
