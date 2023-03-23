@@ -1,5 +1,6 @@
 name: Automatically trigger an Azure Machine Learning job with a pull request
 
+
 jobs:
   lint-checks:
     name: linting
