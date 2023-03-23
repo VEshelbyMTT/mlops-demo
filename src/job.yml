@@ -1,12 +1,12 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-code: model
+code: ./model
 display_name: Train a decision tree classifier model
 type: command
 command: >- 
   python train-model.py 
   --training_data ${{inputs.training_data}}
   --reg_rate ${{inputs.reg_rate}}
-  --features ${{inputs.features}}
+ # --features ${{inputs.features}}
  # --target ${{inputs.target}}
 inputs:
   training_data: 
