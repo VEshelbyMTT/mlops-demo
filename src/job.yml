@@ -6,7 +6,7 @@ command: >-
   python train-model.py 
   --training_data ${{inputs.training_data}}
   --reg_rate ${{inputs.reg_rate}}
-  --features ${{inputs.features}}
+ # --features ${{inputs.features}}
  # --target ${{inputs.target}}
 inputs:
   training_data: 
