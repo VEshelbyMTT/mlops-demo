@@ -9,6 +9,8 @@ inputs:
     type: uri_folder 
     path: 
   reg_rate: 0.01
+  features: ['Pregnancies','PlasmaGlucose','DiastolicBloodPressure','TricepsThickness','SerumInsulin','BMI','DiabetesPedigree','Age']
+  target: ['Diabetic']
 environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
 compute: 
 experiment_name: 
