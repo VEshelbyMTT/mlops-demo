@@ -17,9 +17,11 @@ def main(args):
     # read data
     df = get_csvs_df(args.training_data)
 
-    X = df[args.features].values
-    y = df[args.target].values
-     
+    #X = df[args.features].values
+    #y = df[args.target].values
+    X =df[['Pregnancies','PlasmaGlucose','DiastolicBloodPressure','TricepsThickness','SerumInsulin','BMI','DiabetesPedigree','Age']].values
+    Y =df[['Diabetic']].values
+
     # split data
     X_train, X_test, y_train, y_test = split_data(df, X, y)
 

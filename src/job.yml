@@ -1,17 +1,29 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 code: model
-command: >-
-  python 
-  --
-  --
+display_name: Train a decision tree classifier model
+type: command
+command: >- 
+  python train-model.py 
+  --training_data ${{inputs.training_data}}
+  --reg_rate ${{inputs.reg_rate}}
+  --features ${{inputs.features}}
+ # --target ${{inputs.target}}
 inputs:
   training_data: 
     type: uri_folder 
-    path: 
+    path: azureml:diabetes-datastore-path:2
   reg_rate: 0.01
-  features: ['Pregnancies','PlasmaGlucose','DiastolicBloodPressure','TricepsThickness','SerumInsulin','BMI','DiabetesPedigree','Age']
-  target: ['Diabetic']
+  #features:  #WIP
+   # - 'Pregnancies'
+   # - 'PlasmaGlucose'
+   # - 'DiastolicBloodPressure'
+   # - 'TricepsThickness'
+   # - 'SerumInsulin'
+   # - 'BMI'
+   # - 'DiabetesPedigree'
+   # - 'Age'
+#  target: ['Diabetic']
 environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
-compute: 
-experiment_name: 
-description: 
+compute: CantClustThis
+experiment_name: diabetes-mlops-example
+description: MLOps - Train a classification model on diabetes data using a registered dataset as input. Use MLflow autolog to track parameter, metric, and artifact
