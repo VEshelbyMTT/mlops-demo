@@ -6,7 +6,7 @@ on:
       regularization_rate:
         description: 'Regularization rate'
         required: true
-        default: 0.05
+        default: '0.05'
 
 jobs:
   train:
@@ -20,7 +20,7 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
-  - name: Set Azure ML workspace as default
+    - name: Set Azure ML workspace as default
       run: |
         az configure --defaults group="dp100-main-demo"
         az configure --defaults workspace="training-ml104"
