@@ -22,5 +22,9 @@ jobs:
     - name: Trigger Azure Machine Learning job
       run: |
         az ml job create --file src/job.yml #--reg_rate ${{ github.event.inputs.reg_rate }}
+    #- name: deploy to workspace
+    #  run: |
+    #    az ml online-endpoint create ...
+    
 
 
